@@ -1,0 +1,406 @@
+// Exhibition-Related Styles
+
+// Exhibitions Archive Page
+.exhibitions-archive {
+  padding: $spacing-unit * 4 0;
+
+  .page-header {
+    text-align: center;
+    margin-bottom: $spacing-unit * 4;
+
+    h1 {
+      color: $accent-bright;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: lighten($primary-color, 20%);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+  }
+
+  .exhibitions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: $spacing-unit * 3;
+    margin-top: $spacing-unit * 3;
+
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .exhibition-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+  }
+
+  .exhibition-card-image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 250px;
+    background-color: $section-alt-bg;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    .current-badge {
+      position: absolute;
+      top: $spacing-unit;
+      right: $spacing-unit;
+      background-color: $accent-bright;
+      color: white;
+      padding: $spacing-unit * 0.4 $spacing-unit * 0.8;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+  }
+
+  .exhibition-card-content {
+    padding: $spacing-unit * 1.5;
+
+    h2 {
+      margin-bottom: $spacing-unit * 0.5;
+      font-size: 1.5rem;
+
+      a {
+        color: $primary-color;
+
+        &:hover {
+          color: $accent-bright;
+        }
+      }
+    }
+  }
+
+  .exhibition-card-meta {
+    display: flex;
+    gap: $spacing-unit;
+    flex-wrap: wrap;
+    margin-bottom: $spacing-unit;
+    font-size: 0.9rem;
+    color: lighten($primary-color, 30%);
+
+    .artist {
+      font-style: italic;
+    }
+
+    .date {
+      &:before {
+        content: "•";
+        margin-right: $spacing-unit * 0.5;
+      }
+    }
+  }
+
+  .excerpt {
+    color: lighten($primary-color, 15%);
+    line-height: 1.6;
+    margin-bottom: $spacing-unit * 1.5;
+  }
+
+  .read-more {
+    display: inline-block;
+    color: $accent-cool;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateX(4px);
+      color: darken($accent-cool, 10%);
+    }
+  }
+}
+
+// Individual Exhibition Post Page
+.exhibition-post {
+  .exhibition-header {
+    text-align: center;
+    padding: $spacing-unit * 3 0;
+    background-color: $section-alt-bg;
+  }
+
+  .exhibition-title {
+    color: $accent-bright;
+    margin-bottom: $spacing-unit;
+  }
+
+  .exhibition-meta {
+    display: flex;
+    justify-content: center;
+    gap: $spacing-unit * 2;
+    flex-wrap: wrap;
+    color: lighten($primary-color, 20%);
+    font-size: 1.1rem;
+
+    .artist {
+      font-style: italic;
+    }
+
+    .date {
+      &:before {
+        content: "•";
+        margin-right: $spacing-unit * 0.5;
+      }
+    }
+  }
+
+  .exhibition-image {
+    width: 100%;
+    height: 600px;
+    margin: 0;
+    overflow: hidden;
+    background-color: $section-alt-bg;
+
+    @media (max-width: $breakpoint-mobile) {
+      height: 350px;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+  }
+
+  .exhibition-content {
+    padding: $spacing-unit * 4 0;
+
+    h2 {
+      color: $accent-bright;
+      margin-top: $spacing-unit * 2;
+      margin-bottom: $spacing-unit;
+    }
+
+    h3 {
+      color: $accent-cool;
+      margin-top: $spacing-unit * 1.5;
+    }
+
+    ul, ol {
+      margin-left: $spacing-unit * 2;
+      margin-bottom: $spacing-unit * 1.5;
+    }
+
+    blockquote, em {
+      font-style: italic;
+      color: lighten($primary-color, 15%);
+      border-left: 4px solid $accent-secondary;
+      padding-left: $spacing-unit;
+      margin: $spacing-unit * 1.5 0;
+    }
+  }
+
+  .exhibition-gallery {
+    padding: $spacing-unit * 4 0;
+    background-color: $section-alt-bg;
+
+    h2 {
+      color: $accent-bright;
+      text-align: center;
+      margin-bottom: $spacing-unit * 3;
+    }
+
+    .gallery-grid {
+      display: flex;
+      gap: $spacing-unit * 2;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      padding: $spacing-unit 0;
+      -webkit-overflow-scrolling: touch;
+
+      // Hide scrollbar but keep functionality
+      scrollbar-width: thin;
+      scrollbar-color: rgba($accent-bright, 0.3) transparent;
+
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: rgba($accent-bright, 0.3);
+        border-radius: 4px;
+
+        &:hover {
+          background: rgba($accent-bright, 0.5);
+        }
+      }
+    }
+
+    .gallery-item {
+      flex: 0 0 auto;
+      width: 350px;
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      }
+
+      @media (max-width: $breakpoint-mobile) {
+        width: 280px;
+      }
+
+      img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .gallery-caption {
+        padding: $spacing-unit;
+        font-size: 0.9rem;
+        color: lighten($primary-color, 15%);
+        margin: 0;
+        font-style: italic;
+      }
+    }
+  }
+
+  // Lightbox styles
+  .lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+
+    &.active {
+      display: flex;
+    }
+
+    img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: white;
+      cursor: pointer;
+      font-weight: 300;
+      transition: opacity 0.3s ease;
+      user-select: none;
+
+      &:hover {
+        opacity: 0.7;
+      }
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 1rem;
+      text-align: center;
+      max-width: 80%;
+      padding: $spacing-unit;
+      background: rgba(0, 0, 0, 0.6);
+      border-radius: 8px;
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 50px;
+      color: white;
+      cursor: pointer;
+      padding: $spacing-unit;
+      user-select: none;
+      transition: opacity 0.3s ease;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      &.prev {
+        left: 20px;
+      }
+
+      &.next {
+        right: 20px;
+      }
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 35px;
+        padding: $spacing-unit * 0.5;
+
+        &.prev {
+          left: 10px;
+        }
+
+        &.next {
+          right: 10px;
+        }
+      }
+    }
+  }
+
+  .exhibition-footer {
+    padding: $spacing-unit * 2 0;
+    border-top: 2px solid $border-color;
+  }
+
+  .btn-back {
+    display: inline-block;
+    padding: $spacing-unit * 0.7 $spacing-unit * 1.5;
+    background-color: $accent-cool;
+    color: white;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      transform: translateX(-4px);
+      background-color: darken($accent-cool, 10%);
+      color: white;
+      text-decoration: none;
+    }
+  }
+}

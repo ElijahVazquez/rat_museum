@@ -1,0 +1,132 @@
+---
+layout: default
+title: Home
+---
+
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <h1>R.A.T. Museum</h1>
+    <p class="subtitle">Real Art, Tiny Museum</p>
+    <p class="tagline">
+      A miniature public art gallery showcasing creativity in the smallest of
+      spaces. Located along the
+      <a href="https://maps.app.goo.gl/8z8Fp1GgKVkMt8Mz7" target="_blank"
+        >Buckley St. Greenway</a
+      >, celebrating big ideas in tiny formats.
+    </p>
+    <p style="margin-top: 2rem">
+      <a href="{{ '/about' | relative_url }}" class="btn-hero"
+        >Learn Our Story</a
+      >
+    </p>
+  </div>
+</section>
+
+<!-- Recent Exhibitions -->
+<section class="section recent-exhibitions" id="exhibitions">
+  <div class="container">
+    <header class="section-header">
+      <h2>Recent Exhibitions</h2>
+      <p>Tiny art, big impact. Explore our latest featured works.</p>
+    </header>
+
+    <div class="exhibitions-showcase">
+      {% assign sorted_exhibitions = site.exhibitions | sort: 'date' | reverse
+      %} {% for exhibition in sorted_exhibitions limit:2 %}
+      <article class="showcase-item">
+        {% if exhibition.image %}
+        <a href="{{ exhibition.url | relative_url }}" class="showcase-image">
+          <img
+            src="{{ exhibition.image | relative_url }}"
+            alt="{{ exhibition.title }}"
+          />
+          {% if exhibition.is_current %}
+          <span class="current-badge">Now Showing</span>
+          {% endif %}
+        </a>
+        {% endif %}
+
+        <div class="showcase-content">
+          <h3>
+            <a href="{{ exhibition.url | relative_url }}"
+              >{{ exhibition.title }}</a
+            >
+          </h3>
+          <div class="showcase-meta">
+            <span class="artist">by {{ exhibition.artist }}</span>
+            <span class="date">{{ exhibition.date | date: "%B %Y" }}</span>
+          </div>
+          <p class="excerpt">{{ exhibition.excerpt }}</p>
+          <a href="{{ exhibition.url | relative_url }}" class="btn-view"
+            >View Exhibition →</a
+          >
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <div class="view-all">
+      <a href="{{ '/exhibitions' | relative_url }}" class="btn-view-all"
+        >View All Exhibitions</a
+      >
+    </div>
+  </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section cta" id="contribute">
+  <div class="container">
+    <h2>Want to Contribute?</h2>
+    <p>
+      We're always looking for new tiny art! Whether you're a local artist,
+      student, teacher, or someone else, we'd love to feature your miniature
+      creations. All ages and skill levels are welcome.
+    </p>
+
+    <p><strong>Guidelines:</strong> Here’s what to know before submitting:</p>
+
+    <ul class="small-list">
+      <li>
+        Most pieces are 4" × 4" or smaller (any size is fine as long as it
+        fits).
+      </li>
+      <li>
+        All mediums welcome: painting, drawing, sculpture, origami, collage,
+        poetry, and more.
+      </li>
+      <li>
+        If you're unsure whether your piece works, just ask! We're open to
+        almost anything that fits.
+      </li>
+    </ul>
+
+    <p>
+      The internal gallery dimensions are
+      <strong>11&quot;W × 23&quot;L × 16&quot;H</strong>.
+    </p>
+
+    <a
+      href="mailto:e.c.m.vazquez@gmail.com?subject=RAT%20Museum%20Inquiry%20-&body=Please%20leave%20the%20existing%20subject%20line%20in%20place%20so%20your%20message%20is%20sorted%20correctly.%20Feel%20free%20to%20add%20details%20after%20it.%20You%20may%20delete%20this%20line."
+      class="btn"
+    >
+      Get in Touch
+    </a>
+  </div>
+</section>
+
+<!-- Contact -->
+<section class="section contact" id="contact">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>Questions? Want to submit art? Just want to say hi?</p>
+    <div class="contact-info">
+      <a
+        href="mailto:e.c.m.vazquez@gmail.com?subject=RAT%20Museum%20Inquiry%20-&body=Please%20leave%20the%20existing%20subject%20line%20in%20place%20so%20your%20message%20is%20sorted%20correctly.%20Feel%20free%20to%20add%20details%20after%20it.%20You%20may%20delete%20this%20line."
+        class="btn"
+      >
+        Send a Message
+      </a>
+    </div>
+  </div>
+</section>

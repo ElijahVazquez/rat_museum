@@ -1,0 +1,79 @@
+// About Page Styles
+
+.about-page {
+  .about-header {
+    background: linear-gradient(135deg, $accent-cool 0%, $accent-purple 100%);
+    color: white;
+    text-align: center;
+    padding: $spacing-unit * 5 0;
+
+    h1 {
+      color: white;
+      margin-bottom: $spacing-unit * 0.7;
+    }
+
+    .subtitle {
+      font-size: 1.3rem;
+      opacity: 0.95;
+    }
+  }
+
+  .about-content {
+    padding: $spacing-unit * 5 0;
+
+    h2 {
+      color: $accent-bright;
+      margin-top: $spacing-unit * 3;
+      margin-bottom: $spacing-unit * 1.5;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    ul {
+      margin: $spacing-unit * 1.5;
+      li {
+        margin-bottom: $spacing-unit * 0.7;
+      }
+    }
+
+    .cta-text {
+      text-align: center;
+      margin: $spacing-unit * 2 0;
+      font-size: 1.1rem;
+    }
+
+    .btn-inline {
+      display: inline-block;
+      color: $accent-cool;
+      font-weight: 600;
+      padding: $spacing-unit * 0.5 $spacing-unit;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: rgba($accent-cool, 0.1);
+        text-decoration: none;
+      }
+    }
+
+    .btn-cta {
+      display: inline-block;
+      padding: $spacing-unit $spacing-unit * 2.5;
+      background-color: $accent-bright;
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        background-color: darken($accent-bright, 10%);
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}

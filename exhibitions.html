@@ -1,0 +1,42 @@
+---
+layout: default
+title: All Exhibitions
+permalink: /exhibitions/
+---
+
+<section class="section exhibitions-archive">
+  <div class="container">
+    <header class="page-header">
+      <h1>All Exhibitions</h1>
+      <p class="subtitle">A complete archive of tiny art that has graced our miniature museum.</p>
+    </header>
+
+    <div class="exhibitions-grid">
+      {% assign sorted_exhibitions = site.exhibitions | sort: 'date' | reverse %}
+      {% for exhibition in sorted_exhibitions %}
+        <article class="exhibition-card">
+          {% if exhibition.image %}
+          <a href="{{ exhibition.url | relative_url }}" class="exhibition-card-image">
+            <img src="{{ exhibition.image | relative_url }}" alt="{{ exhibition.title }}">
+            {% if exhibition.is_current %}
+            <span class="current-badge">Current Exhibition</span>
+            {% endif %}
+          </a>
+          {% endif %}
+
+          <div class="exhibition-card-content">
+            <h2>
+              <a href="{{ exhibition.url | relative_url }}">{{ exhibition.title }}</a>
+            </h2>
+            <div class="exhibition-card-meta">
+              <span class="artist">{{ exhibition.artist }}</span>
+              <span class="date">{{ exhibition.date | date: "%B %Y" }}</span>
+            </div>
+            <p class="excerpt">{{ exhibition.excerpt }}</p>
+            <a href="{{ exhibition.url | relative_url }}" class="read-more">View Exhibition →</a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

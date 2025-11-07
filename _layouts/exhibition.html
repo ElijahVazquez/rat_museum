@@ -1,0 +1,60 @@
+---
+layout: default
+---
+
+<article class="exhibition-post">
+  <header class="exhibition-header">
+    <div class="container-narrow">
+      <h1 class="exhibition-title">{{ page.title }}</h1>
+      <div class="exhibition-meta">
+        <span class="artist">by {{ page.artist }}</span>
+        <span class="date">{{ page.date | date: "%B %Y" }}</span>
+      </div>
+    </div>
+  </header>
+
+  {% if page.image %}
+  <div class="exhibition-image">
+    <img src="{{ page.image | relative_url }}" alt="{{ page.title }}">
+  </div>
+  {% endif %}
+
+  <div class="exhibition-content">
+    <div class="container-narrow">
+      {{ content }}
+    </div>
+  </div>
+
+  {% if page.gallery %}
+  <section class="exhibition-gallery">
+    <div class="container-narrow">
+      <h2>Gallery</h2>
+      <div class="gallery-grid">
+        {% for image in page.gallery %}
+        <div class="gallery-item" data-lightbox-trigger data-image="{{ image.url | relative_url }}" data-caption="{{ image.caption }}">
+          <img src="{{ image.url | relative_url }}" alt="{{ image.caption | default: page.title }}">
+          {% if image.caption %}
+          <p class="gallery-caption">{{ image.caption }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" id="lightbox-close">&times;</span>
+    <span class="lightbox-nav prev" id="lightbox-prev">&#10094;</span>
+    <span class="lightbox-nav next" id="lightbox-next">&#10095;</span>
+    <img src="" alt="" id="lightbox-image">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+  {% endif %}
+
+  <footer class="exhibition-footer">
+    <div class="container-narrow">
+      <a href="{{ '/exhibitions' | relative_url }}" class="btn-back">← Back to All Exhibitions</a>
+    </div>
+  </footer>
+</article>

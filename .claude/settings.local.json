@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ruby --version:*)",
+      "Bash(gem --version:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

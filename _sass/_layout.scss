@@ -1,0 +1,555 @@
+// Prototype Banner (Temporary)
+.prototype-banner {
+  background-color: #fef3cd;
+  border-bottom: 2px solid #f0c36d;
+  color: #856404;
+  padding: $spacing-unit * 0.7 0;
+  position: sticky;
+  top: 0;
+  z-index: 101;
+  text-align: center;
+
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-unit * 0.5 0;
+
+    p {
+      font-size: 0.85rem;
+    }
+  }
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0;
+
+  // Constrain width only on very large screens
+  @media (min-width: 1600px) {
+    max-width: 1440px;
+  }
+
+  > section {
+    padding: $spacing-unit * 2;
+
+    @media (max-width: $breakpoint-mobile) {
+      padding: $spacing-unit * 2 $spacing-unit;
+    }
+  }
+}
+
+// For text-heavy content, use narrower container
+.container-narrow {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 $spacing-unit * 2;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 0 $spacing-unit;
+  }
+}
+
+// Header/Navigation
+.site-header {
+  background-color: $primary-color;
+  color: #fff;
+  padding: $spacing-unit $spacing-unit * 2;
+  position: sticky;
+  top: 44px; // Height of prototype banner
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: $spacing-unit;
+    top: 38px; // Adjusted height for mobile banner
+  }
+}
+
+.site-nav {
+  @extend .container;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.site-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  font-family: $font-family-heading;
+  font-style: italic;
+
+  &:hover {
+    color: $accent-secondary;
+  }
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: $spacing-unit * 1.5;
+  margin: 0;
+
+  a {
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255,255,255,0.1);
+      text-decoration: none;
+    }
+  }
+}
+
+// Main content - no default margins for single page
+.page-content {
+  padding: 0;
+}
+
+// Section styles
+.section {
+  padding: $spacing-section 0;
+
+  &.alt {
+    background-color: $section-alt-bg;
+  }
+}
+
+// Hero Section
+section.hero {
+  background:
+    linear-gradient(135deg, rgba($accent-bright, 0.85) 0%, rgba($accent-purple, 0.85) 100%),
+    url('/assets/images/logo.jpg') center/cover no-repeat;
+  color: white;
+  text-align: center;
+  padding-top: $spacing-section * 2;
+  padding-bottom: $spacing-section * 2;
+
+  h1 {
+    color: white;
+    margin-bottom: $spacing-unit * 1.5;
+    font-size: 3.5rem;
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 2.5rem;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.4rem;
+    margin-bottom: $spacing-unit * 2;
+    opacity: 0.95;
+  }
+
+  .tagline {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+    opacity: 0.9;
+
+    a {
+      color: lighten($accent-cool, 10%);
+      font-weight: 600;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .btn-hero {
+    display: inline-block;
+    padding: $spacing-unit * 0.8 $spacing-unit * 2;
+    background-color: white;
+    color: $accent-purple;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      color: $accent-purple;
+      text-decoration: none;
+    }
+  }
+}
+
+// Recent Exhibitions (Home)
+section.recent-exhibitions {
+  padding-top: $spacing-section * 2;
+  padding-bottom: $spacing-section * 2;
+
+  .section-header {
+    text-align: center;
+    margin-bottom: $spacing-unit * 4;
+
+    h2 {
+      color: $accent-bright;
+      margin-bottom: $spacing-unit;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: lighten($primary-color, 20%);
+    }
+  }
+
+  .exhibitions-showcase {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    gap: $spacing-unit * 4;
+    margin-bottom: $spacing-unit * 4;
+
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .showcase-item {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+    }
+  }
+
+  .showcase-image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+    background-color: $section-alt-bg;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    &:hover img {
+      transform: scale(1.05);
+    }
+
+    .current-badge {
+      position: absolute;
+      top: $spacing-unit;
+      right: $spacing-unit;
+      background-color: $accent-bright;
+      color: white;
+      padding: $spacing-unit * 0.5 $spacing-unit;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+  }
+
+  .showcase-content {
+    padding: $spacing-unit * 2;
+
+    h3 {
+      margin-bottom: $spacing-unit * 0.7;
+      font-size: 1.75rem;
+
+      a {
+        color: $primary-color;
+
+        &:hover {
+          color: $accent-bright;
+        }
+      }
+    }
+  }
+
+  .showcase-meta {
+    display: flex;
+    gap: $spacing-unit;
+    flex-wrap: wrap;
+    margin-bottom: $spacing-unit * 1.2;
+    color: lighten($primary-color, 30%);
+
+    .artist {
+      font-style: italic;
+    }
+
+    .date {
+      &:before {
+        content: "•";
+        margin-right: $spacing-unit * 0.5;
+      }
+    }
+  }
+
+  .excerpt {
+    color: lighten($primary-color, 15%);
+    line-height: 1.6;
+    margin-bottom: $spacing-unit * 1.5;
+  }
+
+  .btn-view {
+    display: inline-block;
+    color: $accent-cool;
+    font-weight: 600;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateX(4px);
+      color: darken($accent-cool, 10%);
+    }
+  }
+
+  .view-all {
+    text-align: center;
+    margin-top: $spacing-unit * 3;
+  }
+
+  .btn-view-all {
+    display: inline-block;
+    padding: $spacing-unit $spacing-unit * 2.5;
+    background-color: $accent-purple;
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      background-color: darken($accent-purple, 10%);
+      color: white;
+      text-decoration: none;
+    }
+  }
+}
+
+// Current Exhibition
+.current-exhibition {
+  background-color: $accent-secondary;
+  color: $primary-color;
+
+  .exhibition-card {
+    background: white;
+    padding: $spacing-unit * 2;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .exhibition-meta {
+    color: lighten($primary-color, 20%);
+    font-size: 0.95rem;
+    margin-bottom: $spacing-unit;
+  }
+
+  h3 {
+    color: $accent-bright;
+    margin-bottom: $spacing-unit * 0.5;
+  }
+
+  .artist {
+    font-style: italic;
+    color: lighten($primary-color, 15%);
+  }
+}
+
+// Past Exhibitions Archive
+.archive {
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: $spacing-unit * 2;
+    margin-top: $spacing-unit * 2;
+  }
+
+  .archive-item {
+    background: white;
+    border-radius: 8px;
+    padding: $spacing-unit * 1.5;
+    border: 2px solid $border-color;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-4px);
+      border-color: $accent-cool;
+    }
+
+    h4 {
+      color: $accent-bright;
+      margin-bottom: $spacing-unit * 0.5;
+      font-size: 1.3rem;
+    }
+
+    .date {
+      color: lighten($primary-color, 30%);
+      font-size: 0.9rem;
+      margin-bottom: $spacing-unit * 0.5;
+    }
+
+    .artist {
+      font-style: italic;
+      color: lighten($primary-color, 20%);
+      margin-bottom: $spacing-unit;
+    }
+  }
+}
+
+// Call to Action
+section.cta {
+  background: linear-gradient(135deg, $accent-cool 0%, $accent-purple 100%);
+  color: white;
+  text-align: center;
+  padding-top: $spacing-section * 2;
+  padding-bottom: $spacing-section * 2;
+
+  h2 {
+    color: white;
+  }
+
+  p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto $spacing-unit * 2;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: $spacing-unit * 0.8 $spacing-unit * 2;
+    background-color: white;
+    color: $accent-purple;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      color: $accent-purple;
+    }
+  }
+
+  ul.small-list {
+    /* center the block, left-align the contents */
+    margin: $spacing-unit * 1.5 auto;
+    max-width: 700px;
+    text-align: left;
+
+    /* normal bullets, not huge indent */
+    list-style: disc;
+    list-style-position: outside;
+    padding-left: 1.25rem;
+  }
+
+  section.cta ul.small-list li {
+    margin-bottom: .5rem; // tighten spacing
+  }
+}
+
+// Contact
+section.contact {
+  text-align: center;
+  background-color: $section-alt-bg;
+  padding-top: $spacing-section * 1.5;
+  padding-bottom: $spacing-section * 1.5;
+
+  .contact-info {
+    margin-top: $spacing-unit * 2;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: $spacing-unit * 0.8 $spacing-unit * 2;
+    background-color: $accent-bright;
+    color: white;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      background-color: darken($accent-bright, 10%);
+      color: white;
+    }
+  }
+}
+
+
+// Footer
+.site-footer {
+  background-color: $primary-color;
+  color: rgba(255,255,255,0.7);
+  padding: $spacing-unit * 3 0 $spacing-unit * 2;
+  text-align: center;
+
+  a {
+    color: $accent-secondary;
+  }
+
+  .footer-donate {
+    padding-bottom: $spacing-unit * 2;
+
+    .donate-text {
+      color: rgba(255,255,255,0.9);
+      font-size: 1rem;
+      margin-bottom: $spacing-unit;
+    }
+
+    .btn-donate {
+      display: inline-block;
+      padding: $spacing-unit * 0.7 $spacing-unit * 2;
+      background-color: $accent-bright;
+      color: white;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        background-color: darken($accent-bright, 10%);
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+// Responsive
+@media (max-width: $breakpoint-mobile) {
+  .site-nav {
+    flex-direction: column;
+    text-align: center;
+    gap: $spacing-unit;
+  }
+
+  .nav-links {
+    margin-top: $spacing-unit;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .section {
+    padding: $spacing-section * 0.7 0;
+  }
+
+  .hero {
+    padding: $spacing-section 0;
+  }
+}
