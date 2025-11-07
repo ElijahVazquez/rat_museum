@@ -1,8 +1,8 @@
 # Site settings
 title: R.A.T. Museum
 description: Real Art, Tiny Museum - A miniature public art gallery showcasing creativity in the smallest of spaces
-baseurl: "" # the subpath of your site, e.g. /blog (update this when deploying to GitHub Pages)
-url: "" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://ratmuseum.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
